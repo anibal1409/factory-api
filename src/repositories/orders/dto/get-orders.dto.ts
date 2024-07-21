@@ -2,13 +2,15 @@ import { Type } from 'class-transformer';
 // eslint-disable-next-line prettier/prettier
 import {
   IsBooleanString,
+  IsDateString,
   IsOptional,
   IsString,
 } from 'class-validator';
 
+// eslint-disable-next-line prettier/prettier
 import { ApiPropertyOptional } from '@nestjs/swagger';
 
-export class GetProductsDto {
+export class GetOrdersDto {
   @ApiPropertyOptional()
   @IsOptional()
   @Type(() => Number)
@@ -22,30 +24,35 @@ export class GetProductsDto {
   @ApiPropertyOptional()
   @IsOptional()
   @IsString()
-  name?: string;
+  provider?: string;
 
   @ApiPropertyOptional()
   @IsOptional()
-  @Type(() => Number)
-  price?: number;
+  @IsString()
+  stage?: string;
 
   @ApiPropertyOptional()
   @IsOptional()
-  @Type(() => Number)
-  stock?: number;
-
-  @ApiPropertyOptional()
-  @IsOptional()
-  @Type(() => Number)
-  moreOrequal?: number;
-
-  @ApiPropertyOptional()
-  @IsOptional()
-  @Type(() => Number)
-  lessOrEqual?: number;
+  @IsDateString()
+  date?: Date;
 
   @ApiPropertyOptional()
   @IsOptional()
   @Type(() => Number)
   categoryId?: number;
+
+  @ApiPropertyOptional()
+  @IsOptional()
+  @IsDateString()
+  start: string;
+
+  @ApiPropertyOptional()
+  @IsOptional()
+  @IsDateString()
+  end: string;
+
+  @ApiPropertyOptional()
+  @IsOptional()
+  @IsString()
+  order?: 'ASC' | 'DESC';
 }

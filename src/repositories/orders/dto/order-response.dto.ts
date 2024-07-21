@@ -15,11 +15,10 @@ import {
   ApiPropertyOptional,
 } from '@nestjs/swagger';
 
-import { Customer } from '../../customers/entities';
-import { Sale } from '../entities';
-import { CreateSaleProductDto } from './create-sale-product.dto';
+import { Order } from '../entities';
+import { CreateOrderProductDto } from './create-order-product.dto';
 
-export class SaleRespondeDto {
+export class OrderRespondeDto {
   @ApiProperty()
   @IsNotEmpty()
   @Type(() => Number)
@@ -29,6 +28,11 @@ export class SaleRespondeDto {
   @IsNotEmpty()
   @IsDateString()
   date!: Date;
+
+  @ApiProperty()
+  @IsNotEmpty()
+  @IsDateString()
+  deadline!: Date;
 
   @ApiPropertyOptional()
   @IsOptional()
@@ -47,21 +51,22 @@ export class SaleRespondeDto {
 
   @ApiProperty()
   @IsNotEmpty()
-  @Type(() => Customer)
-  customer: Customer;
+  @IsString()
+  provider: string;
 
-  @ApiProperty({ type: [CreateSaleProductDto] })
+  @ApiProperty({ type: [CreateOrderProductDto] })
   @ArrayNotEmpty()
-  @Type(() => CreateSaleProductDto)
-  saleProducts: CreateSaleProductDto[];
+  @Type(() => CreateOrderProductDto)
+  orderProducts: CreateOrderProductDto[];
 
-  constructor(data: Sale) {
+  constructor(data: Order) {
     this.id = data.id;
     this.date = data.date;
     this.note = data.note;
-    this.customer = data.customer;
+    this.provider = data.provider;
     this.total = data.total;
     this.stage = data.stage;
-    this.saleProducts = data.saleProducts as any;
+    this.deadline = data.deadline;
+    this.orderProducts = data.orderProducts as any;
   }
 }

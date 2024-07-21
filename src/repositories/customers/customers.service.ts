@@ -66,7 +66,7 @@ export class CustomersService implements CrudRepository<Customer> {
         status: data?.status,
       },
       order: {
-        lastName: 'ASC',
+        name: 'ASC',
       },
       relations: [],
     });
@@ -92,6 +92,7 @@ export class CustomersService implements CrudRepository<Customer> {
       status: updateDto.status,
       email: updateDto.email,
       phone: updateDto.phone,
+      type: updateDto.type,
     });
 
     return this.findOne(item.id);

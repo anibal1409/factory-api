@@ -29,15 +29,14 @@ export class CustomerRespondeDto {
 
   @ApiProperty()
   @IsNotEmpty()
-  @IsEmail()
   @IsString()
-  firstName!: string;
+  name!: string;
 
   @ApiProperty()
   @IsNotEmpty()
   @IsEmail()
   @IsString()
-  lastName!: string;
+  email!: string;
 
   @ApiProperty()
   @IsNotEmpty()
@@ -47,7 +46,7 @@ export class CustomerRespondeDto {
   @ApiProperty()
   @IsNotEmpty()
   @IsString()
-  gender: string;
+  type: string;
 
   @ApiPropertyOptional()
   @IsOptional()
@@ -58,9 +57,9 @@ export class CustomerRespondeDto {
     this.id = data.id;
     this.status = data.status;
     this.idDocument = data.idDocument;
-    this.firstName = data.firstName;
-    this.lastName = data.lastName;
-    this.gender = data.gender;
+    this.name = data.name;
+    this.email = data.email;
+    this.type = data.type;
     this.phone = data.phone;
   }
 }

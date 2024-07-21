@@ -11,19 +11,13 @@ import { CustomerType } from '../enums';
 @Entity()
 export class Customer extends IdEntity {
   @Column({ nullable: false })
-  firstName!: string;
-
-  @Column({ nullable: false })
-  lastName!: string;
+  name!: string;
 
   @Column({ nullable: false })
   idDocument!: string;
 
-  @Column({ nullable: true })
-  phone?: string;
-
-  @Column({ nullable: true })
-  gender: string;
+  @Column({ nullable: false })
+  phone: string;
 
   @Column({ nullable: false, unique: true })
   email!: string;
