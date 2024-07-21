@@ -19,6 +19,10 @@
       margin-top: -4rem;
     }
 
+    .circle {
+      border-radius: 50%;
+    }
+
     .title {
       text-align: center;
       text-decoration: underline;
@@ -30,7 +34,7 @@
     .image-right {
       width: 5rem;
       position: absolute;
-      top: 2rem;
+      top: 4rem;
       right: 1rem;
     }
 
@@ -103,10 +107,12 @@
 
 <body>
   <p class="center w-100 bold underline">{{ companyName }}</p>
-  <p class="center w-100 bold underline">{{ companyDocument }}</p>
-  <p class="center w-100 bold underline">{{ companyAddress }}</p>
+  <p class="center w-100 bold">{{ companyDocument }}</p>
+  <p class="center w-100 bold">{{ companyAddress }}</p>
+  <p class="center w-100 bold">{{ companyEmail }}</p>
   
-  <img class="image image-left" src="{{imgSystem}}" data-iml="5230848.099999994" />
+  <img class="image image-left circle" src="{{imgSystem}}" data-iml="5230848.099999994" />
+  <img class="image image-right" src="{{imgCompany}}" data-iml="5230848.099999994" />
 
   <p class="center w-100 underline">NOTA DE ENTREGA</p>
   
@@ -116,7 +122,7 @@
 
 
 
-  <p><span class="bold">Cliente:</span> {{ customer.idDocument }} - {{ customer.firstName }}, {{ customer.lastName }}.
+  <p><span class="bold">Cliente:</span> {{ customer.idDocument }} - {{ customer.name }}.
   </p>
 
   <p class="center w-100 underline">Detalles de los productos</p>
