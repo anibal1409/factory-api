@@ -102,21 +102,28 @@
     .right {
       text-align: right;
     }
+    .with-background-image {
+      background-image: url('http://localhost:3333/public/logo03.png');
+      background-size: 45rem;
+      background-repeat: no-repeat;
+      background-position: center;
+      height: 55rem;
+    }
   </style>
 </head>
 
-<body>
-  <p class="center w-100 bold underline">{{ companyName }}</p>
-  <p class="center w-100 bold">{{ companyDocument }}</p>
-  <p class="center w-100 bold">{{ companyAddress }}</p>
-  <p class="center w-100 bold">{{ companyEmail }}</p>
+<body class="with-background-image">
+  <p class="center w-100 bold">{{ companyName }}</p>
+  <p class="center w-100">{{ companyDocument }}</p>
+  <p class="center w-100">{{ companyAddress }}</p>
+  <p class="center w-100">{{ companyEmail }}</p>
 
   
-  <img class="image image-left circle" src="{{imgSystem}}" data-iml="5230848.099999994" />
-  <img class="image image-right" src="{{imgCompany}}" data-iml="5230848.099999994" />
+  <img class="image image-right circle" src="{{imgSystem}}" data-iml="5230848.099999994" />
+  <img class="image image-left " src="{{imgCompany}}" data-iml="5230848.099999994" />
   <br>
 
-  <p class="center w-100 underline">REPORTE DE VENTAS</p>
+  <p class="center w-100">REPORTE DE VENTAS</p>
 
   <p class="right w-100 "><span class="bold">Consulta:</span> {{ start }} - {{ end }}</p>
   
@@ -125,10 +132,10 @@
   <table class="products">
     <thead>
       <tr>
-        <th>N</th>
+        <th>Nº</th>
         <th>Código</th>
         <th>Fecha</th>
-        <th>N de Productos</th>
+        <th>Nº de Piezas</th>
         <th>Estado</th>
         <th>Total</th>
       </tr>

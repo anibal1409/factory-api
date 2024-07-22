@@ -260,6 +260,7 @@ export class ReportsService {
         companyEmail: process.env.COMPANY_EMAIL,
         start,
         end,
+        total,
       },
       path: `${CustomAssetsPathFolder}/${_pdfName}.pdf`,
       type: '',
